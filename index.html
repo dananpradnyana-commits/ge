@@ -1,175 +1,1040 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirya Farm House | Product Description</title>
-    <meta name="description" content="Complete product analysis of Sirya Farm House Bali using the 5W1H method.">
-    <link rel="stylesheet" href="index.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirya Farm House | Product Description</title>
+<meta name="description" content="Complete product analysis of Sirya Farm House Bali using the 5W1H method.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #7A9E7E;
+    --sage-light: #B8CEB9;
+    --sage-dark: #4A6B4E;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE5D4;
+    --earth: #8B6F5C;
+    --earth-light: #C4A882;
+    --charcoal: #2A2A2A;
+    --text-light: #5C5C5C;
+    --white: #FFFFFF;
+    --gold: #C9A84C;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── STICKY TOP NAV ─── */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(122, 158, 126, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .top-nav.scrolled {
+    box-shadow: 0 2px 24px rgba(42, 42, 42, 0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--sage-dark); }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 2rem;
+    transition: all 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: var(--sage-dark);
+    color: var(--white);
+  }
+
+  /* ─── FLOATING DOT NAV ─── */
+  .dot-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .dot-nav a {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    border: 1.5px solid var(--sage);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .dot-nav a:hover,
+  .dot-nav a.active {
+    background: var(--sage-dark);
+    border-color: var(--sage-dark);
+    transform: scale(1.4);
+  }
+
+  .dot-nav a .dot-label {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    font-weight: 500;
+  }
+
+  .dot-nav a:hover .dot-label { opacity: 1; }
+
+  /* ─── SECTIONS ─── */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    width: 100%;
+  }
+
+  /* ─── REVEAL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    background: var(--charcoal);
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('gambarfix.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 20, 15, 0.50);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sage-light);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .hero-scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+  }
+
+  /* ─── SECTION LABELS ─── */
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 3.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--sage-dark);
+  }
+
+  /* ─── SECTION 01: WHO ─── */
+  #who {
+    background: var(--cream);
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5px;
+    background: rgba(122, 158, 126, 0.2);
+    border: 1.5px solid rgba(122, 158, 126, 0.2);
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+
+  .who-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .who-card:hover { background: var(--cream-dark); }
+
+  .who-card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(122, 158, 126, 0.18);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s;
+  }
+
+  .who-card:hover .who-card-num { color: rgba(122, 158, 126, 0.4); }
+
+  .who-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .who-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── SECTION 02: WHAT ─── */
+  #what {
+    background: var(--charcoal);
+  }
+
+  #what .section-label { color: var(--sage-light); }
+  #what .section-label::before { background: var(--sage-light); }
+  #what .section-title { color: var(--white); }
+  #what .section-title em { color: var(--sage-light); }
+
+  .what-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .what-image-wrap {
+    position: relative;
+  }
+
+  .what-image-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: rgba(122, 158, 126, 0.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .what-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+
+  .what-image-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: var(--cream);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .what-image-badge .badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1;
+  }
+
+  .what-image-badge .badge-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 0.2rem;
+  }
+
+  .what-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .what-feature {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .what-feature:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+
+  .what-feature-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(122, 158, 126, 0.15);
+    border: 1px solid rgba(122, 158, 126, 0.25);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--sage-light);
+  }
+
+  .what-feature h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .what-feature p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .what-feature strong { color: var(--gold); font-weight: 500; }
+
+  /* ─── SECTION 03: WHERE/WHEN ─── */
+  #where {
+    background: var(--cream-dark);
+  }
+
+  .where-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .where-card {
+    background: var(--cream);
+    border: 1px solid rgba(122, 158, 126, 0.2);
+    border-radius: 1.25rem;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .where-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(74, 107, 78, 0.12);
+  }
+
+  .where-card-bg {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    width: 10rem;
+    height: 10rem;
+    background: radial-gradient(circle, rgba(122, 158, 126, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .where-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .where-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  .where-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ─── SECTION 04: WHY ─── */
+  #why {
+    background: var(--sage-dark);
+    position: relative;
+  }
+
+  .why-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  #why .section-label { color: var(--sage-light); }
+  #why .section-label::before { background: var(--sage-light); }
+  #why .section-title { color: var(--white); }
+
+  .why-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why-rating {
+    text-align: center;
+    position: relative;
+  }
+
+  .why-rating-circle {
+    width: 200px;
+    height: 200px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .why-rating-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .why-rating-denom {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  .why-rating-label {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+  }
+
+  .why-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .why-benefit {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: padding-left 0.3s ease;
+  }
+
+  .why-benefit:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+
+  .why-benefit:hover { padding-left: 0.75rem; }
+
+  .why-check {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--sage-light);
+    font-size: 0.8rem;
+  }
+
+  .why-benefit p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ─── SECTION 05: HOW ─── */
+  #how {
+    background: var(--cream);
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 2.4rem;
+    left: 3rem;
+    right: 3rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--sage-light), var(--sage), var(--sage-dark), var(--sage));
+    z-index: 0;
+  }
+
+  .how-step {
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .how-step-dot {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--cream);
+    border: 2px solid var(--sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .how-step:hover .how-step-dot {
+    background: var(--sage-dark);
+    color: var(--white);
+    border-color: var(--sage-dark);
+    transform: scale(1.1);
+  }
+
+  .how-step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+
+  .how-step p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--charcoal);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--sage-light); }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--sage);
+    width: 0%;
+    z-index: 200;
+    transition: width 0.1s linear;
+  }
+
+  /* SVG icons inline */
+  .icon-leaf::before { content: "🌿"; font-size: 1.2rem; }
+  .icon-heart::before { content: "♡"; font-style: normal; }
+  .icon-people::before { content: "◎"; }
+
+  /* Checmark unicode */
+  .check::before { content: "✓"; }
+
+  /* ─── RESPONSIVE: LARGE SCREENS (≥1400px) ─── */
+  @media (min-width: 1400px) {
+    .container { max-width: 1280px; }
+    .section-title { font-size: 5rem; }
+    .who-card { padding: 3rem 2.5rem; }
+    .who-card h3 { font-size: 1.8rem; }
+    .who-card p { font-size: 1rem; }
+    .what-layout { gap: 6rem; }
+    .what-feature h4 { font-size: 1.5rem; }
+    .what-feature p { font-size: 1rem; }
+    .where-card { padding: 3.5rem 3rem; }
+    .where-card h3 { font-size: 2.1rem; }
+    .where-card p { font-size: 1rem; }
+    .why-rating-circle { width: 240px; height: 240px; }
+    .why-rating-num { font-size: 5rem; }
+    .why-benefit p { font-size: 1.1rem; }
+    .how-step h4 { font-size: 1.6rem; }
+    .how-step p { font-size: 1rem; }
+    .how-step-dot { width: 5rem; height: 5rem; font-size: 1.3rem; }
+    .how-steps::before { top: 2.6rem; }
+  }
+
+  /* ─── RESPONSIVE: EXTRA LARGE (≥1800px) ─── */
+  @media (min-width: 1800px) {
+    .container { max-width: 1500px; padding: 0 5rem; }
+    .top-nav { padding: 1.5rem 5rem; }
+    .section-title { font-size: 6rem; }
+    .section-label { font-size: 0.8rem; }
+    .who-card p { font-size: 1.05rem; }
+    .what-feature p { font-size: 1.05rem; }
+    .where-card p { font-size: 1.05rem; }
+    .why-benefit p { font-size: 1.15rem; }
+    .how-step p { font-size: 1.05rem; }
+    .nav-links a { font-size: 0.85rem; padding: 0.5rem 1.1rem; }
+  }
+
+  /* ─── RESPONSIVE: TABLET (≤900px) ─── */
+  @media (max-width: 900px) {
+    .top-nav { padding: 1rem 1.5rem; }
+    .container { padding: 0 1.5rem; }
+    .dot-nav { display: none; }
+    .who-grid { grid-template-columns: 1fr; gap: 1.5px; }
+    .what-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .what-image-box { aspect-ratio: 16/9; }
+    .where-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+    .why-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .why-rating { display: flex; align-items: center; gap: 1.5rem; }
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 3rem 0; }
+    .how-steps::before { display: none; }
+    .how-step { padding: 0 1rem; }
+    section { padding: 6rem 0 3rem; }
+    .nav-links a { font-size: 0.7rem; padding: 0.4rem 0.6rem; letter-spacing: 0.08em; }
+  }
+
+  /* ─── RESPONSIVE: MOBILE (≤600px) ─── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .how-steps { grid-template-columns: 1fr; }
+    .hero-title { font-size: clamp(2.8rem, 12vw, 5rem); }
+  }
+</style>
 </head>
 <body>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content reveal">
-                <h1>Sirya Farm House Bali<br>Product Description</h1>
-            </div>
-        </section>
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
 
-        <!-- Who Section -->
-        <section id="about" class="section reveal">
-            <div class="container">
-                <div class="editorial-label">SECTION 01 // AUDIENCE</div>
-                <h2 class="section-title">Who is it for?</h2>
-                <div class="bento-grid">
-                    <div class="bento-card bento-accent">
-                        <ion-icon name="leaf-outline"></ion-icon>
-                        <h3>Slow Living Seekers</h3>
-                        <p>Travelers seeking tranquility from city life, nature lovers, and individuals wanting an authentic Balinese rural experience.</p>
-                    </div>
-                    <div class="bento-card">
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <h3>Romantic Escapes</h3>
-                        <p>Perfect for couples looking for romantic getaways or private, serene honeymoons.</p>
-                    </div>
-                    <div class="bento-card">
-                        <ion-icon name="people-outline"></ion-icon>
-                        <h3>Families & Solos</h3>
-                        <p>Small families needing extra space or solo travelers seeking long-term peace and quiet.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Top Navigation -->
+<nav class="top-nav" id="topNav">
+  <a href="#hero" class="nav-logo">Sirya<span>FarmHouse</span></a>
+  <ul class="nav-links">
+    <li><a href="#who" data-section="who">Who</a></li>
+    <li><a href="#what" data-section="what">What</a></li>
+    <li><a href="#where" data-section="where">Where &amp; When</a></li>
+    <li><a href="#why" data-section="why">Why</a></li>
+    <li><a href="#how" data-section="how">How</a></li>
+  </ul>
+</nav>
 
-        <!-- What Section -->
-        <section id="details" class="section reveal border-top bg-pale-green">
-            <div class="container">
-                <div class="editorial-label">SECTION 02 // ANALYSIS</div>
-                <h2 class="section-title">What is it?</h2>
-                <div class="split-layout">
-                    <div class="split-image">
-                        <img src="gambarhero.webp" alt="Sirya Farm House Room">
-                    </div>
-                    <div class="split-content">
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <div class="feature-icon"><ion-icon name="home-outline"></ion-icon></div>
-                                <div class="feature-text">
-                                    <h4>Lodge & Farm Stay</h4>
-                                    <p>30 m² rooms with AC, free WiFi, fully equipped kitchen, and private bathroom/terrace.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon"><ion-icon name="sunny-outline"></ion-icon></div>
-                                <div class="feature-text">
-                                    <h4>Lush Facilities</h4>
-                                    <p>Features green gardens, a coffee shop, private balconies, and shared BBQ facilities.</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon"><ion-icon name="pricetag-outline"></ion-icon></div>
-                                <div class="feature-text">
-                                    <h4>Competitive Value</h4>
-                                    <p>Pricing ranges between <strong>$10 - $35 (Rp 150k - 550k)</strong> per night.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Floating Dot Navigation -->
+<nav class="dot-nav" id="dotNav" aria-label="Section navigation">
+  <a href="#hero" data-section="hero"><span class="dot-label">Intro</span></a>
+  <a href="#who" data-section="who"><span class="dot-label">Who</span></a>
+  <a href="#what" data-section="what"><span class="dot-label">What</span></a>
+  <a href="#where" data-section="where"><span class="dot-label">Where &amp; When</span></a>
+  <a href="#why" data-section="why"><span class="dot-label">Why</span></a>
+  <a href="#how" data-section="how"><span class="dot-label">How</span></a>
+</nav>
 
-        <!-- Where Section -->
-        <section id="location" class="section reveal border-top">
-            <div class="container">
-                <div class="editorial-label">SECTION 03 // LOCATION</div>
-                <h2 class="section-title">Where & When</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <ion-icon name="map-outline"></ion-icon>
-                        <h3>Strategic Location</h3>
-                        <p>Located in the quiet Meliling village. Close to Bali Butterfly Park and the route to Tanah Lot. Designed for both indoor relaxation and outdoor village activities.</p>
-                    </div>
-                    <div class="info-card">
-                        <ion-icon name="time-outline"></ion-icon>
-                        <h3>Year-Round Value</h3>
-                        <p>Perfect for weekend getaways, annual leave, or wedding anniversaries. Operating year-round as a recurring escape from urban stress.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">Sirya Farm<br><em>House Bali</em></h1>
+  </div>
+  <div class="hero-scroll-hint">Scroll</div>
+</section>
 
-        <!-- Why Section -->
-        <section id="experience" class="section reveal border-top bg-pale-green">
-            <div class="container">
-                <div class="editorial-label">SECTION 04 // ADVANTAGE</div>
-                <h2 class="section-title">Why Sirya?</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">9.6<span>/10</span></div>
-                        <div class="stat-label">Guest Rating</div>
-                    </div>
-                    <div class="stat-content">
-                        <ul class="benefit-list">
-                            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Directly managed by a friendly local Balinese family.</li>
-                            <li><ion-icon name="checkmark-circle-outline"></ion-icon> A warmer and more personal cultural experience.</li>
-                            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Exceptionally clean, quiet, and safe environment.</li>
-                            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Delicious, authentic home-cooked meals.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ── SECTION 01: WHO ── -->
+<section id="who">
+  <div class="container">
+    <h2 class="section-title reveal reveal-delay-1">Who is it <em>for?</em></h2>
+    <div class="who-grid reveal reveal-delay-2">
+      <div class="who-card">
+        <div class="who-card-num">01</div>
+        <h3>Slow Living Seekers</h3>
+        <p>Travelers seeking tranquility from city life, nature lovers, and individuals wanting an authentic Balinese rural experience.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-num">02</div>
+        <h3>Romantic Escapes</h3>
+        <p>Perfect for couples looking for romantic getaways or private, serene honeymoons.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-num">03</div>
+        <h3>Families &amp; Solos</h3>
+        <p>Small families needing extra space or solo travelers seeking long-term peace and quiet.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- How Section -->
-        <section class="section reveal border-top">
-            <div class="container">
-                <div class="editorial-label">SECTION 05 // OPERATIONS</div>
-                <h2 class="section-title">How it works?</h2>
-                <div class="journey-steps">
-                    <div class="step">
-                        <div class="step-num">01</div>
-                        <h4>Reservation</h4>
-                        <p>Book via platforms like Traveloka.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">02</div>
-                        <h4>Check-in</h4>
-                        <p>Warm welcome starting from 14:00.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">03</div>
-                        <h4>Stay</h4>
-                        <p>Access all facilities and optional traditional meals.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">04</div>
-                        <h4>Support</h4>
-                        <p>Airport shuttles and bicycle rentals are available.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-brand">
-                <div class="logo">Sirya<span>FarmHouse</span></div>
-                <p>"Life is learning always"</p>
-            </div>
-            <p>&copy; 2026 Product Analysis Assignment</p>
+<!-- ── SECTION 02: WHAT ── -->
+<section id="what">
+  <div class="container">
+    <h2 class="section-title reveal reveal-delay-1">What <em>is it?</em></h2>
+    <div class="what-layout">
+      <div class="what-image-wrap reveal reveal-delay-1">
+        <div class="what-image-box">
+          <img src="gambarhero.webp" alt="Sirya Farm House Room" onerror="this.style.display='none'; this.parentElement.style.background='rgba(122,158,126,0.2)';">
+          <div class="what-image-badge">
+            <div class="badge-num">30 m²</div>
+            <div class="badge-label">Room Size</div>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="what-features reveal reveal-delay-2">
+        <div class="what-feature">
+          <div class="what-feature-icon">⌂</div>
+          <div>
+            <h4>Lodge &amp; Farm Stay</h4>
+            <p>30 m² rooms with AC, free WiFi, fully equipped kitchen, and private bathroom/terrace.</p>
+          </div>
+        </div>
+        <div class="what-feature">
+          <div class="what-feature-icon">✦</div>
+          <div>
+            <h4>Lush Facilities</h4>
+            <p>Features green gardens, a coffee shop, private balconies, and shared BBQ facilities.</p>
+          </div>
+        </div>
+        <div class="what-feature">
+          <div class="what-feature-icon">◈</div>
+          <div>
+            <h4>Competitive Value</h4>
+            <p>Pricing ranges between <strong>$10 – $35 (Rp 150k – 550k)</strong> per night.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="index.js"></script>
+<!-- ── SECTION 03: WHERE & WHEN ── -->
+<section id="where">
+  <div class="container">
+    <h2 class="section-title reveal reveal-delay-1">Where <em>&amp; When</em></h2>
+    <div class="where-layout">
+      <div class="where-card reveal reveal-delay-1">
+        <div class="where-card-bg"></div>
+        <div class="where-card-icon">📍</div>
+        <h3>Strategic Location</h3>
+        <p>Located in the quiet Meliling village. Close to Bali Butterfly Park and the route to Tanah Lot. Designed for both indoor relaxation and outdoor village activities.</p>
+      </div>
+      <div class="where-card reveal reveal-delay-2">
+        <div class="where-card-bg"></div>
+        <div class="where-card-icon">🗓</div>
+        <h3>Year-Round Value</h3>
+        <p>Perfect for weekend getaways, annual leave, or wedding anniversaries. Operating year-round as a recurring escape from urban stress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 04: WHY ── -->
+<section id="why">
+  <div class="why-bg"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <h2 class="section-title reveal reveal-delay-1">Why <em>Sirya?</em></h2>
+    <div class="why-layout">
+      <div class="why-rating reveal reveal-delay-1">
+        <div class="why-rating-circle">
+          <div class="why-rating-num">9.6</div>
+          <div class="why-rating-denom">/10</div>
+        </div>
+        <div class="why-rating-label">Guest Rating</div>
+      </div>
+      <ul class="why-benefits">
+        <li class="why-benefit reveal reveal-delay-1">
+          <div class="why-check"><span class="check"></span></div>
+          <p>Directly managed by a friendly local Balinese family.</p>
+        </li>
+        <li class="why-benefit reveal reveal-delay-2">
+          <div class="why-check"><span class="check"></span></div>
+          <p>A warmer and more personal cultural experience.</p>
+        </li>
+        <li class="why-benefit reveal reveal-delay-3">
+          <div class="why-check"><span class="check"></span></div>
+          <p>Exceptionally clean, quiet, and safe environment.</p>
+        </li>
+        <li class="why-benefit reveal reveal-delay-4">
+          <div class="why-check"><span class="check"></span></div>
+          <p>Delicious, authentic home-cooked meals.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 05: HOW ── -->
+<section id="how">
+  <div class="container">
+    <h2 class="section-title reveal reveal-delay-1">How it <em>works?</em></h2>
+    <div class="how-steps">
+      <div class="how-step reveal reveal-delay-1">
+        <div class="how-step-dot">01</div>
+        <h4>Reservation</h4>
+        <p>Book via platforms like Traveloka.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-2">
+        <div class="how-step-dot">02</div>
+        <h4>Check-in</h4>
+        <p>Warm welcome starting from 14:00.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-3">
+        <div class="how-step-dot">03</div>
+        <h4>Stay</h4>
+        <p>Access all facilities and optional traditional meals.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-4">
+        <div class="how-step-dot">04</div>
+        <h4>Support</h4>
+        <p>Airport shuttles and bicycle rentals are available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">Sirya<span>FarmHouse</span></div>
+    <p class="footer-tagline">"Life is learning always"</p>
+    <p class="footer-copy">&copy; 2026 Product Analysis Assignment</p>
+  </div>
+</footer>
+
+<script>
+  const sections = ['hero','who','what','where','why','how'];
+
+  // ── Reveal on scroll ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── Active nav dots & links ──
+  const sectionEls = sections.map(id => document.getElementById(id));
+  const dotLinks = document.querySelectorAll('.dot-nav a');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const topNav = document.getElementById('topNav');
+  const progressBar = document.getElementById('progressBar');
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const prog = Math.min((scrollY / docH) * 100, 100);
+    progressBar.style.width = prog + '%';
+
+    if (scrollY > 60) topNav.classList.add('scrolled');
+    else topNav.classList.remove('scrolled');
+
+    let current = 'hero';
+    sectionEls.forEach(sec => {
+      if (sec && scrollY >= sec.offsetTop - window.innerHeight / 2) {
+        current = sec.id;
+      }
+    });
+
+    dotLinks.forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+
+  // ── Trigger hero reveals immediately ──
+  document.querySelectorAll('#hero .reveal').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+</script>
 </body>
 </html>
